@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+table, th, td {
+  border: 1px solid;
+  border-color: rgb(131, 5, 227);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: white;
+  background-image : url("https://w0.peakpx.com/wallpaper/544/472/HD-wallpaper-color-background-blue.jpg") ;
+  
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+  
+}
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+
+
+.europaimg {
+  background-image:url(https://supercurioso.com/wp-content/uploads/2018/02/curiosidades-de-europa-curiosidades-de-islandia-paisaje.jpg);
+  
+  background-repeat: no-repeat;
+  width: auto;
+  padding: auto;
+  
+}
+
+
+.americaimg {
+  background-image:url(https://www.laportadacanada.com/userfiles/images/foCcataratas-Iguaz%C3%BA.jpg);
+  background-repeat: no-repeat;
+  width: auto;
+  padding: auto;
+  
+}
+
+
+.ryanairimg {
+  background-image: url(data:image/jpeg;base64,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);
+  background-repeat: no-repeat;
+  width: 3;
+  padding: 3;
+}
+
+
+.canadaimg {  background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL3u_I-0RJBB_tsFtjY076AdXaz47GbrRo3A&usqp=CAU);
+  width: 300px;
+  height: 20px;
+  padding: 80px;
+  border-style: dotted;
+
+}
+
+
+.mexicoimg {  background-image:url(https://www.gratistodo.com/wp-content/uploads/2016/01/imagenes-de-paisajes-en-movimiento.png);
+  width: 30px;
+  height: 20px;
+  padding: 150px;
+  border-style: dotted;
+
+}
+
+
+.asiaimg {  background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJPsAAGBP6XunNcyTgzFc4u4nefylggl9BNQ&usqp=CAU);
+  width: 250px;
+  height: 70px;
+  padding: 90px;
+  border-style: dotted;
+
+}
+
+
+</style>
+</head>
+<body style="background-color:#fd1e1e98;">
+
+<div class="header">
+  
+  <h1>Ryanair</h1>
+  <h3 style="font-size: x-large;">¡ Los mejores viajes solo para ti !</h3>
+</div>
+
+<div class="topnav">
+  <a href="#texto1">Europa</a>
+  <a href="#texto2">America</a>
+  <a href="#posts">Posts populares</a>
+  <a href="#contacto" style="float:right">Para contactarnos</a>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2 id="texto1">Europa</h2>
+      <h5></h5>
+      <div class="europaimg" style="height:200px;"></div>
+      <p>Informacion basica</p>
+      <p>Europa es uno de los seis continentes del mundo. Los otros son África, América, Antártida, Asia y Oceanía. Europa se extiende desde el Ártico, en el norte, al mar Mediterráneo, en el sur, y desde el océano Atlántico, en el oeste, hasta las montañas de los Urales (en Rusia), en el este.</p>
+    </div>
+    <div class="card">
+      <h2 id="texto2">America</h2>
+      <h5></h5>
+      <div class="americaimg" style="height:200px;"></div>
+      <p>Informacion basica</p>
+      <p>América es un amplio continente que se extiende en el sentido de los meridianos, y además, tiene un largo desarrollo latitudinal. América es la segunda masa de tierra más grande del planeta, luego de Asia, comprende una extensión aproximada de 42.262.142 km².</p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>Sobre nosotros</h2>
+      <div class="ryanairimg" style="height:100px;"></div>
+      <p>Ryanair es quizás, la compañía aérea que mas ha revolucionado el sector aéreo en los últimos años. Desde su creación en 1985 hasta hoy, su apuesta por el concepto low cost, le ha permitido ser la aerolínea más rentable del mundo. Hoy opera 600.000 vuelos anuales en más de 1800 rutas desde 215 aeropuertos y nos hace posible a más de 130 millones de pasajeros cada año conocer destinos cada vez más remotos, con un presupuesto ajustado.</p>
+    </div>
+    <div class="card">
+      <h3 id="posts">Posts populares</h3>
+      <div class="canadaimg"></div>
+      <div class="mexicoimg"></div>
+      <div class="asiaimg"></div>
+    </div>
+    <div class="card">
+      <h3>Otras opciones</h3>
+      
+      
+      <ol>
+       
+
+        <li>Hawai</li><br>
+        <li>Bombay</li><br>
+        <li>Roma</li><br>
+
+
+
+      </ol>
+
+      <table>
+        <tr>
+          <th>Lugar</th>
+          <th>Precio</th>
+          
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>650€</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>1050€</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>400€</td>
+        </tr>
+
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  
+  <h2 id="contacto">Para contactarnos:</h2>
+
+
+  <a title="instagram" href="https://www.instagram.com/ryanair_es/?hl=es"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/150px-Instagram_logo_2022.svg.png" alt="intagram" width="50"/></a>
+  
+  <a title="YouTube" href="https://www.youtube.com/ryanairnews"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/YouTube_social_white_squircle.svg/2048px-YouTube_social_white_squircle.svg.png" alt="YouTube" width="50"/></a>
+  
+  <a title="linkedin" href="https://www.linkedin.com/company/ryanair"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="linkedin" width="50"/></a>
+  
+  <a title="twiter" href="https://twitter.com/Ryanair"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png" alt="twiter" width="50"/></a>
+  
+  <a title="facebook" href="https://facebook.com/ryanair"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/220px-2021_Facebook_icon.svg.png" alt="facebook" width="50"/></a>
+
+  
+</div>
+
+</body>
+</html>
+
+
